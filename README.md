@@ -1,8 +1,23 @@
-# React + Vite
+# Made using React + Vite ⚡✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This an Blog Application inspired from medium. Many features or elements are styled from seeing medium ✨.
+This Project gives a intermediate level knowledge of how to use use firebase in your project.
 
-Currently, two official plugins are available:
+### Things implemented so far !
+```
+Features:
+- Create a Post ✅
+- Read a Post ✅
+- Update
+- Delete 
+- User Profile ✅
+- Authentication ✅
+- Search Post
+- Filter Post
+```
+### Tech Stack:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Frontend: ReactJS for a performant and interactive user interface.
+- Styling: Tailwind CSS for rapid UI development and a consistent design language.
+- Backend: Firebase for a scalable and secure foundation, offering features like user authentication and data storage.
+
