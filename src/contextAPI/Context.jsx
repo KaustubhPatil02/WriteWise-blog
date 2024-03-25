@@ -1,7 +1,7 @@
 import { onAuthStateChanged } from 'firebase/auth';
 // eslint-disable-next-line no-unused-vars
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { auth, db } from '../firebaseConfig/firebase';
+import { auth, db } from '../Firebase/firebase';
 import Loading from '../components/loading/Loading';
 import { collection, onSnapshot, query } from 'firebase/firestore';
 const BlogContext = createContext();

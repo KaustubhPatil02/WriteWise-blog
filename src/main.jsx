@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
-import Context from './Context/Context.jsx'
+import Context from './contextAPI/Context.jsx'
 import 'react-toastify/dist/ReactToastify.css';
 // import ReactQuill from 'react-quill';
 // import 'react-quill/dist/quill.snow.css'; // for snow theme
