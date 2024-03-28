@@ -23,7 +23,7 @@ const HomeHeader = () => {
 
 
   return (
-    <header className='border-b border-gray-400'>
+    <header className='border-b border-gray-400 bg-green-600 '>
       {userLoading && <Loading/>}
       <div className='size h-[70px] flex justify-between items-center'>
         <div className='flex items-center gap-3'>
@@ -46,10 +46,10 @@ const HomeHeader = () => {
           className='btn bg-green-700 text-white rounded-full px-2 py-1 item-center'>Publish</button>
          ): (
           <Link to="/write" className='hidden md:flex items-center gap-1 text-gray-600'>
-          <span className='text-xl'>
+          <span className='text-xl text-gray-900'>
             <LiaEditSolid />
           </span>
-          <span className='mt-0 text-sm'>Write & publish</span>
+          <span className='mt-0 text-sm text-gray-900'>Write & publish</span>
         </Link>
          )}
           <div className='flex items-center relative'>

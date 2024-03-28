@@ -5,7 +5,8 @@ import Posts from '../common_components/Posts/Posts'
 
 const Home = () => {
   return (
-    <section className='size flex gap-[5rem] relative'>
+    <div className=''>
+    <section className='size flex gap-[5rem] relative bg-'>
       {/* left */}
       <div className='flex-[2] py-10 mb-[4rem]'>
         <Posts />
@@ -15,6 +16,7 @@ const Home = () => {
         <Users />
       </div> */}
     </section>
+    </div>
   )
 }
 

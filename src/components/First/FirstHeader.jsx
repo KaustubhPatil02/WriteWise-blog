@@ -21,7 +21,7 @@ const FirstHeader = () => {
 
   return (
     <header className={`border-b border-black sticky top-0 z-50 
-    ${isActive ? "bg-white" : "bg-banner"}
+    ${isActive ? "bg-yellow-400" : "bg-white"}
     transition-all duration-500`}>
       <div className='size h-[70px] flex items-center justify-between'>
         <Link to={"/"}>

@@ -9,6 +9,10 @@ import { useNavigate } from 'react-router-dom';
 
 import { db } from '../../../Firebase/firebase'
 import moment from 'moment';
+import SavedPosts from './PostActions/SavedPosts';
+import SharePost from './PostActions/SharePost';
+import Comments from './PostActions/Comments';
+import Like from './PostActions/Like';
 
 const SinglePostView = () => {
     const {postId} = useParams()
@@ -48,19 +52,22 @@ const SinglePostView = () => {
     },[postId])
     console.log(post)
 
-    const {title,desc, postImg, username, createdAt, userImg, userId} = post
+    const {title,desc, postImg, username, created, userImg, userId} = post
 
     const navigateToUser = useNavigate()
 
   return (
     <>
-    {loading? <Loading /> 
-    : 
+    {loading?(
+        <Loading /> 
+    ) 
+    : (
+        <>
         <section className='w-[90%] md:w-[80%] lg:w-[60%] mx-auto py-[3rem]'>
             <h2 className='text-4xl font-bold capitalize'>{title}</h2>
             <div className='flex items-center gap-3 py-[3rem]'>
                 <img 
-                // onClick={() => navigateToUser(`/profile/${userId}`) }
+                onClick={() => navigateToUser(`/profile/${userId}`) }
                 className='w-3[rem] h-[4rem] object-cover rounded-full cursor-pointer' src={userImg} alt="" />
                 <div>
                     <div className='capitalize'>
@@ -68,11 +75,33 @@ const SinglePostView = () => {
                     </div>
                     <p className='text-sm text-gray-600 '>
                         {readTime({__html: desc})} min read .
-                        <span className='ml-1'>{moment(createdAt).fromNow()}</span>
+                        <span className='ml-1'>{moment(created).fromNow()}</span>
                     </p>
                 </div>
             </div>
-        </section>
+            <div className='flex items-center justify-between border-b border-gray-300'>
+                {/* left */}
+                <div className='flex items-center gap-6'>
+                    <Like />
+                    <Comments/>
+                </div>
+                {/* right */}
+                <div className='flex items-center pt-2 gap-5'>
+                {post && <SavedPosts post={post} />}
+                <SharePost />
+                {/* <ActionBtn /> */}
+                 </div> 
+            </div>
+
+            {/* postdesc */}
+            <div className='mt-[3rem]'>
+                <img className='w-full h-[400px] object-cover ' src={postImg} alt="Post Image" />
+                <div className='mt-6' dangerouslySetInnerHTML={{__html: desc}} />
+            </div>
+        </section> 
+        </>
+    )
+        
     }
     </>
   )

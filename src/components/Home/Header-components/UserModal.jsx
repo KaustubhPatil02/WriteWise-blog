@@ -7,6 +7,8 @@ import { LiaEditSolid } from "react-icons/lia";
 import { secretMail } from '../../../utility/supporter';
 import { auth } from '../../../Firebase/firebase';
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+
 
 const UserModal = (setModal) => {
   const navigate = useNavigate();
@@ -23,6 +25,7 @@ const UserModal = (setModal) => {
   const handleSignOut = () => {
     auth.signOut()
       .then(() => {
+        toast.success('Signout successful');
         // Signout successful
         // You can perform any additional actions here, such as redirecting to a login page
         navigate('/');
@@ -30,6 +33,7 @@ const UserModal = (setModal) => {
       .catch((error) => {
         // An error occurred during signout
         // console.log(error);
+        toast.error('An error occurred during signout');
       });
   };
   return (

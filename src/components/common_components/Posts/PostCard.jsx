@@ -6,7 +6,7 @@ import SavedPosts from './PostActions/SavedPosts';
 import { useNavigate } from 'react-router-dom';
 
 const PostCard = ({ post }) => {
-  const { title, desc, createdAt, postImg, id: postId, userId } = post;
+  const { title, desc, created, postImg, id: postId, userId } = post;
   const { data, loading } = UseFetch("users");
   const getUserData = data && data.find((user) => user?.id === userId);
   const navigateToPost = useNavigate();
@@ -35,7 +35,7 @@ const PostCard = ({ post }) => {
       </div>
       <div className='flex items-center justify-between w-full md:w-[80%] mt-[3rem] md:mt-0'>
         <p className='text-sm text-gray-600'>
-          {readTime({ __html: desc })} min reading time. Created At {moment(createdAt).format("DD-MM-YYYY")}
+          {readTime({ __html: desc })} min reading time. Created At {moment(created).format("DD-MM-YYYY")}
         </p>
         <div className=' flex items-center gap-4'>
           <SavedPosts post={post} />

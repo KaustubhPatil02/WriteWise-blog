@@ -10,7 +10,10 @@ import { db } from '../../../../Firebase/firebase';
 const SavedPosts = ({ post }) => {
     const { currUser } = Blog();
     const [saved, setSaved] = useState(false);
-    const { data, loading } = useSingleFetch("users", currUser?.uid, "savedPost");
+    const { data, loading } = useSingleFetch("users", 
+    currUser?.uid, 
+    // post?.uid,
+    "savedPost");
 
     // to chech wheter the post is saved or not
     useEffect(() => {
