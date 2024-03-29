@@ -9,11 +9,12 @@ const Banner = () => {
           Stay curious.
         </h1>
         <p className="w-full md:w-[60rem] text-[1.3rem] md:text-[1.5rem] font-medium leading-7">
-        "Explore narratives, insights, and knowledge shared by developers on any subject. Unlock a platform akin to Medium, tailored for developers to exchange blogs, stories, and expertise." ~ <i> WriteWise</i>
+        "Explore narratives, insights, and knowledge shared by developers on any subject. Unlock a platform akin to Medium, tailored for developers to exchange blogs, stories, and expertise." ~ 
+        <i className='text-yellow-500'> WriteWise</i>
         </p>
         <button
         onClick={() => window.location.href = "/getstarted"} 
-        className="btn bg-banner rounded-full text-white font-semibold !text-[1.2rem] !px-6 !mt-[2.5rem]">
+        className="btn bg-banner rounded-full text-white font-semibold !text-[1.2rem] !px-6 !mt-[2.5rem] ">
           Start Writing
         </button>
       </div>

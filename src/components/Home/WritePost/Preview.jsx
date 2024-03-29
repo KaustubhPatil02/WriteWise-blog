@@ -82,20 +82,21 @@ const Preview = ({ setPublish, ideas, title }) => {
   
 
   return (
-    <section className='absolute inset-0 bg-white z-30'>
+    // <div className='bg-header1'>
+      <section className='absolute inset-0 bg-header2 z-30'>
       <div className='size my-[2rem]'>
         <span
           onClick={() => setPublish(false)}
           className='absolute right-[1rem] md:right-[5rem] top-[3rem] text-2xl cursor-pointer'>
-          <IoIosCloseCircle />
+          <IoIosCloseCircle className='text-4xl text-white'/>
         </span>
         <div className='mt-[8rem] flex flex-col md:flex-row gap-10'>
           <div className='flex-1'>
-            <h3>Post Preview</h3>
+            <h3 className='text-white text-xl'>Post Preview</h3>
             <div
               style={{ backgroundImage: `url(${imgPrev})` }}
               onClick={clickHandler}
-              className='w-full h-[200px] object-cover bg-gray-100 my-3 grid place-items-center cursor-pointer bg-cover bg-no-repeat'>
+              className='w-full h-[200px] object-cover bg-gray-100 my-3 grid place-items-center cursor-pointer bg-header1 bg-no-repeat'>
               {!imgPrev && <p className='text-2xl text-gray-500'>Add a banner for the blog</p>}
             </div>
             <input
@@ -108,14 +109,14 @@ const Preview = ({ setPublish, ideas, title }) => {
               hidden
             />
             <input
-              className='outline-none w-full border-b border-gray-400 py-4'
+              className='outline-none w-full border-b border-gray-400 py-4 bg-header2 text-white text-xl'
               type="text"
               placeholder="Title"
               value={preview.title}
               onChange={(e) => setPreview({ ...preview, title: e.target.value })}
             />
             <ReactQuill
-              className='border-b border-gray-400 py-5'
+              className='border-b border-gray-400 py-5 bg-header2 text-white'
               theme="bubble"
               value={desc}
               onChange={setDesc}
@@ -124,16 +125,17 @@ const Preview = ({ setPublish, ideas, title }) => {
             />
           </div>
           <div className='flex-1 flex-col gap-[4] mb-5 md:mb-0'>
-            <h3 className='text-2xl '>Publishing to: <span className='font-bold capitalize'>UserName</span></h3>
+            <h3 className='text-2xl text-white '>Publishing to: <span className='font-bold capitalize'>UserName</span></h3>
             <div className='mt-5 gap-6'>
               <p className='text-gray-500'>Add tags according to your post, so it reaches the targeted readers</p>
               <TagsInput
                 value={tagsInput}
                 onChange={setTagsInput}
+                className='bg-write text-xl'
               />
               <button 
               onClick={handleSubmit}
-              className='!bg-green-800 text-white rounded-full px-3 py-2 mt-20'>
+              className='!bg-banner text-header1 font-semibold rounded-full px-3 py-2 mt-20'>
                 {loading ? 'Publishing...' : 'Publish Now :)'}
               </button>
             </div>
@@ -141,6 +143,7 @@ const Preview = ({ setPublish, ideas, title }) => {
         </div>
       </div>
     </section>
+    // </div>
   )
 }
 
