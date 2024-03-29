@@ -2,7 +2,7 @@ import React from 'react'
 
 const UserProfileAbout = ({getUsersData, setEditModal}) => {
   return (
-    <div className='w-full'>
+    <div className='min-h-screen'>
       <p className='text-2xl first-letter:uppercase'>
         {getUsersData?.bio || getUsersData?.username + " has not updated their bio yet"}
       </p>

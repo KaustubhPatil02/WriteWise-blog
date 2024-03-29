@@ -5,7 +5,7 @@ import Posts from '../common_components/Posts/Posts'
 
 const Home = () => {
   return (
-    <div className='text-white bg-post1'>
+    <div className='text-white bg-post1 min-h-screen'>
     <section className='size flex gap-[1rem] relative '>
       {/* left */}
       <div className='flex-[2] py-10 mb-[4rem]'>
