@@ -20,8 +20,8 @@ const FirstHeader = () => {
 
 
   return (
-    <header className={`border-b border-black sticky top-0 z-50 
-    ${isActive ? "bg-yellow-400" : "bg-white"}
+    <header className={`border-b border-black sticky top-0 z-50 text-white
+    ${isActive ? "bg-header2 " : "bg-header2 "}
     transition-all duration-500`}>
       <div className='size h-[70px] flex items-center justify-between'>
         <Link to={"/"}>
@@ -42,8 +42,8 @@ const FirstHeader = () => {
     
           <button
             onClick={() => setModal(true)}
-            className={` text-white rounded-full px-3 p-2 text-sm font-medium
-            ${isActive ?"bg-green-700" : "bg-black"}
+            className={` text-white rounded-full px-3 p-2 text-sm font-semibold
+            ${isActive ?"bg-banner text-black " : "bg-black1"}
             `}>
             Get Started
           </button>

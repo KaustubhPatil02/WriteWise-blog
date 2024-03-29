@@ -59,7 +59,7 @@ const SavedPosts = ({ post }) => {
             <span>Save this post</span>
             <BsFillSave2Fill className={`
            text-2xl pointer-events-none 
-           ${saved ? "text-yellow-500" : ""}
+           ${saved ? "text-banner" : ""}
            `} />
 
         </button>

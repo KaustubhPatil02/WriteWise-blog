@@ -23,12 +23,12 @@ const HomeHeader = () => {
 
 
   return (
-    <header className='border-b border-gray-400 bg-green-600 '>
+    <header className='border-b border-gray-400 bg-black '>
       {userLoading && <Loading/>}
-      <div className='size h-[70px] flex justify-between items-center'>
+      <div className='size h-[70px] flex justify-between items-center '>
         <div className='flex items-center gap-3'>
           <a href="/">
-          <span className='text-4xl font-bold'> WriteWise
+          <span className='text-4xl font-bold text-white'> WriteWise
            {/* <img src="../../../assets/logo2.png" alt="" /> */}
           </span>
           </a>
@@ -46,13 +46,13 @@ const HomeHeader = () => {
           className='btn bg-green-700 text-white rounded-full px-2 py-1 item-center'>Publish</button>
          ): (
           <Link to="/write" className='hidden md:flex items-center gap-1 text-gray-600'>
-          <span className='text-xl text-gray-900'>
+          <span className='text-xl text-white'>
             <LiaEditSolid />
           </span>
-          <span className='mt-0 text-sm text-gray-900'>Write & publish</span>
+          <span className='mt-0 text-sm text-white'>Write & publish</span>
         </Link>
          )}
-          <div className='flex items-center relative'>
+          <div className='flex items-center relative gap-3'>
             <img
               onClick={() => setModal(true)}
               className='w-10 h-10 rounded-full cursor-pointer object-cover'
@@ -61,7 +61,7 @@ const HomeHeader = () => {
             <span
               onClick={() => setModal(true)}
               className='text-hray-600 cursor-pointer'>
-              <IoIosArrowDown />
+              <IoIosArrowDown className='text-white'/>
             </span>           
             <Modal modal={modal} setModal={setModal}>
               <div className={`${modal ? "visible opacity-100%" : "invisible opacity-0"}`}>

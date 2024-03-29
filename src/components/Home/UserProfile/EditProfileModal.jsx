@@ -70,7 +70,7 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
 
   return (
     <Modal modal={editModal} setModal={setEditModal}>
-      <div className='center w-[95] md:w-[50rem] bg-white mx-auto shadows-sm my-[1rem] z-10 mb-[3rem] p-[2rem] shadow'>
+      <div className='center w-[95] md:w-[50rem] bg-header2 mx-auto shadows-sm my-[1rem] z-10 mb-[3rem] p-[2rem] shadow'>
         {/* edit functionality for users */}
         <div className='flex flex-center justify-between'>
           {/* uppersection */}
@@ -82,7 +82,7 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
           </button>
         </div>
         {/* midsection */}
-        <section className='mt-6'>
+        <section className='mt-6 bg'>
           <p className='pb-3 text-sm text-gray-400'>Avatar</p>
           <div className='flex gap-[2rem]'>
             <div className='w-[5rem]'>
@@ -115,7 +115,7 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
         <section className='pt-[1rem] text-sm '>
           <label htmlFor="" className='pb-3 block'>Name*</label>
           <input
-            className='outline-none p-1 w-full border-b border-black'
+            className='outline-none p-1 w-full border-b border-white bg-header2'
             type="text"
             placeholder='UserName to be displayed'
             value={formData.username}
@@ -128,7 +128,7 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
           <section className='pt-[1rem] text-sm'>
             <label htmlFor="" className='pb-3 block'>Bio*</label>
             <input
-              className='outline-none p-1 w-full border-b border-black'
+              className='outline-none p-1 w-full border-b border-white bg-header2'
               type="text"
               placeholder='Your bio'
               value={formData.bio}

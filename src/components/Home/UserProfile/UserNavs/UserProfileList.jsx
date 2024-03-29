@@ -2,7 +2,9 @@ import React from 'react'
 
 const UserProfileList = () => {
   return (
-    <div>UserProfileList</div>
+    <div className='bg-header2'>
+    <div >UserProfileList</div>
+    </div>
   )
 }
 

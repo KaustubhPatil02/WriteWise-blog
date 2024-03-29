@@ -63,17 +63,18 @@ const SinglePostView = () => {
     ) 
     : (
         <>
-        <section className='w-[90%] md:w-[80%] lg:w-[60%] mx-auto py-[3rem]'>
-            <h2 className='text-4xl font-bold capitalize'>{title}</h2>
+        <div className='bg-header2'>
+        <section className='w-[90%] md:w-[80%] lg:w-[60%] mx-auto py-[3rem] '>
+            <h2 className='text-4xl font-bold capitalize text-white'>{title}</h2>
             <div className='flex items-center gap-3 py-[3rem]'>
                 <img 
                 onClick={() => navigateToUser(`/profile/${userId}`) }
-                className='w-3[rem] h-[4rem] object-cover rounded-full cursor-pointer' src={userImg} alt="" />
+                className='w-3[rem] h-[4rem] object-cover rounded-full cursor-pointer text-white' src={userImg} alt="" />
                 <div>
-                    <div className='capitalize'>
+                    <div className='capitalize  text-white'>
                         <span>{username}</span>
                     </div>
-                    <p className='text-sm text-gray-600 '>
+                    <p className='text-sm text-gray-300 '>
                         {readTime({__html: desc})} min read .
                         <span className='ml-1'>{moment(created).fromNow()}</span>
                     </p>
@@ -81,12 +82,12 @@ const SinglePostView = () => {
             </div>
             <div className='flex items-center justify-between border-b border-gray-300'>
                 {/* left */}
-                <div className='flex items-center gap-6'>
+                <div className='flex items-center gap-6  text-white'>
                     <Like />
                     <Comments/>
                 </div>
                 {/* right */}
-                <div className='flex items-center pt-2 gap-5'>
+                <div className='flex items-center pt-2 gap-5  text-white'>
                 {post && <SavedPosts post={post} />}
                 <SharePost />
                 {/* <ActionBtn /> */}
@@ -96,9 +97,10 @@ const SinglePostView = () => {
             {/* postdesc */}
             <div className='mt-[3rem]'>
                 <img className='w-full h-[400px] object-cover ' src={postImg} alt="Post Image" />
-                <div className='mt-6' dangerouslySetInnerHTML={{__html: desc}} />
+                <div className='mt-6  text-white' dangerouslySetInnerHTML={{__html: desc}} />
             </div>
         </section> 
+        </div>
         </>
     )
         

@@ -37,8 +37,8 @@ const UserModal = (setModal) => {
       });
   };
   return (
-    <section className='absolute w-[18rem] p-6 bg-white right-0 top-[100%]
-      shadows rounded-md z-50 text-gray-700'>
+    <section className='absolute w-[18rem] p-6 bg-header2 right-0 top-[100%]
+      shadows rounded-md z-50 text-gray-300'>
       <Link to="/write" className=' flex md:hidden items-center gap-1 text-gray-600'>
         <span className='text-2xl'>
           <LiaEditSolid />
@@ -49,7 +49,7 @@ const UserModal = (setModal) => {
         {UserModal.map((link, i) => (
           <Link
           onClick={() => setModal(false)} 
-          to={link.path} key={i} className='flex items-center gap-4 hover:text-black/50'>
+          to={link.path} key={i} className='flex items-center gap-4 hover:text-header1'>
             <span className='text-2xl'>{link.icon}</span>
             <span className='text-md'>{link.title}</span>
 
@@ -57,7 +57,7 @@ const UserModal = (setModal) => {
         ))}
         </div>
         <button 
-            className='flex flex-col pt-5 cursor-pointer hover:text-black/70'
+            className='flex flex-col pt-5 cursor-pointer hover:text-header1'
             onClick={handleSignOut}
         >
           Sign Out

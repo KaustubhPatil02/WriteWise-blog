@@ -9,7 +9,7 @@ const Posts = () => {
   
   return (
     <section className='flex flex-col gap-[2.5rem]'>
-      {loading ?<Loading /> : data.map((post, i) => <PostCard post={post} key={i}  />)}
+      {loading ?(<Loading />) : (data.map((post, i) => <PostCard post={post} key={i}  />))}
       {/* {loading ? (
         <Loading />
       ) : data ? (

@@ -7,6 +7,9 @@ export default {
       colors: {
         black1: "rgba(0,0,0,0.8)",
         banner: "rgb(255, 192, 23)",
+      post1: "#111827",
+        header1:"#334155",
+        header2:"#0f172a"
       },
       fontFamily: {
         title: `gt-super, Georgia, Cambria,Times New Roman, Times, serif;`,

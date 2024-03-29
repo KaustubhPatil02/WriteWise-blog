@@ -15,11 +15,11 @@ const PostCard = ({ post }) => {
     <>
       <div
         onClick={() => navigateToPost(`/post/${postId}`)}
-        className='flex flex-col sm:flex-row gap-10 cursor-pointer'
+        className='flex flex-col sm:flex-row gap-4 cursor-pointer'
       >
         <div className='flex-[3rem]'>
-          <p className='pb-2 font-semibold capitalize'>{getUserData?.username}</p>
-          <h2 className="text-xl font-bold line-clamp-4 leading-10 capitalize">
+          <p className='pb-2 font-semibold capitalize text-banner'>{getUserData?.username}</p>
+          <h2 className="text-xl font-bold line-clamp-4 leading-10 capitalize text-white">
             {title}
           </h2>
           <div className='py-1 text-gray-600 line-clamp-5 leading-5'

@@ -9,7 +9,7 @@ const UserProfileAbout = ({getUsersData, setEditModal}) => {
       <div className='text-right'>
         <button 
         onClick={() => setEditModal(true)}
-        className='border border-green-800 py-2 px-5 rounded-full 
+        className='border border-white py-2 px-5 rounded-full bg-header2
         text-balck mt-[5rem]'>Edit here</button>
       </div>
     </div>

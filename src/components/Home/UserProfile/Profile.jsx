@@ -41,14 +41,15 @@ const Profile = () => {
   const [modal, setModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   return (
-    <section className='size flex gap-[4rem] relative'>
+    <div className='bg-header2 text-white'>
+      <section className='size flex gap-[4rem] relative bg-header2'>
       <div className='mt-[9rem] flex-[2]'>
         <div className='flex items-end gap-4'>
           <h2 className='text-2xl sm:text-5xl font-bold capitalize'>{getUsersData?.username}</h2>
           {/* <p className='text-gray-400 text-xs sm:text-sm'>im</p> */}
         </div>
 
-        <div className='flex items-center gap-5 mt-[1rem] border-b border-gray-300 mb-[3rem]'>
+        <div className='flex items-center gap-5 mt-[1rem] border-b border-gray-300 mb-[3rem] bg-inherit'>
           {userNavs.map((item, i) => (
             // eslint-disable-next-line react/jsx-key
             <div key={i} className={`py-[1rem] 
@@ -74,7 +75,7 @@ const Profile = () => {
       {/* user details  */}
       <Modal modal={modal} setModal={setModal}>
         <div className={`flex-[1] border-l border-gray-300 p-[2rem] 
-        z-10 fixed right-0 bottom-0 top-0 w-[18rem] bg-white md:relative
+        z-10 fixed right-0 bottom-0 top-0 w-[18rem] md:relative bg-header2
         ${modal ? "translate-x-0" : "translate-x-[100%] md:translate-x-0"}       
         `}>
           <div className='pb-4 text-right'>
@@ -85,13 +86,13 @@ const Profile = () => {
             </button>
           </div>
           {/* profile details */}
-          <div className='sticky top-7 flex flex-col justify-between'>
+          <div className='sticky top-7 flex flex-col justify-between bg-header2'>
             <img
               className='w-[3.5rem] h-[3.5rem] object-cover rounded-full'
               src={getUsersData?.userImg ||  "/loading.gif"} 
               alt="" />
             <h2 className='py-2 font-bold capitalize'>UserName</h2>
-            <p className='text-gray-600 first-letter:uppercase text-sm'>this is an bio para</p>
+            <p className='text-gray-300 first-letter:uppercase text-sm'>this is an bio para</p>
             <button onClick={() => setEditModal(true)} className='text-green-700 font-semibold pt-10 text-sm w-fit'>Edit your Profile</button>
           </div>
         </div>
@@ -104,6 +105,7 @@ const Profile = () => {
         setEditModal={setEditModal} />
       }
     </section>
+    </div>
   )
 }
 

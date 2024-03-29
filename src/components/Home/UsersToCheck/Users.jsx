@@ -3,7 +3,7 @@ import React from 'react'
 const Users
  = () => {
   return (
-    <div>Users to follow
+    <div>Users to follow, implemented nantr
         
     </div>
   )
