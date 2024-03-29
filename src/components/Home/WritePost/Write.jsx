@@ -14,10 +14,11 @@ const Write = () => {
   };
 
   return (
-    <section className='w-[90%] md:w-[80%] lg:w-[60%] mx-auto py-[3rem]'>
+    <div className='bg-post1 min-h-screen'>
+      <section className='w-[90%] md:w-[80%] lg:w-[60%] mx-auto py-[3rem]'>
       <form onSubmit={handleSubmit}>
         <input
-          className='text-5xl outline-none w-full'
+          className='text-5xl outline-none w-full bg-post1 text-white'
           value={title}
           type="text"
           placeholder="Title"
@@ -26,7 +27,7 @@ const Write = () => {
         <ReactQuill
           value={ideas}
           onChange={setIdeas}
-          className='write my-5'
+          className='write my-10 text-white'
           theme="bubble"
           placeholder='Push your Content or Ideas here!'
         />
@@ -40,6 +41,7 @@ const Write = () => {
         <button type="submit" style={{ display: 'none' }}></button> {/* Hidden submit button */}
       </form>
     </section>
+    </div>
   );
 }
 

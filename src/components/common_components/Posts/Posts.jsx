@@ -5,20 +5,19 @@ import PostCard from './PostCard';
 
 const Posts = () => {
   const { data, loading } = useFetch("writewise-posts");
-  // console.log(data);
   
   return (
     <div className=''>
       <section className='flex flex-col gap-[2.5rem]'>
-      {loading ?(<Loading />) : (data.map((post, i) => <PostCard post={post} key={i}  />))}
-      {/* {loading ? (
-        <Loading />
-      ) : data ? (
-        data.map((post, i) => <PostCard post={post} key={i} />)
-      ) : (
-        <p>No posts found.</p>
-      )} */}
-    </section>
+        {loading ? (
+          <Loading />
+        ) : data.length > 0 ? (
+          data.map((post, i) => <PostCard post={post} key={i} />)
+        ) : (
+          <div className='flex flex-col gap-2'><h1 className='text-3xl'>No posts found. Oops!</h1>
+          <p>Why don't you create one instead !</p></div>
+        )}
+      </section>
     </div>
   );
 }

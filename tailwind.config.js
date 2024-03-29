@@ -9,7 +9,8 @@ export default {
         banner: "rgb(255, 192, 23)",
       post1: "#111827",
         header1:"#334155",
-        header2:"#0f172a"
+        header2:"#0f172a",
+        write:"#475569"
       },
       fontFamily: {
         title: `gt-super, Georgia, Cambria,Times New Roman, Times, serif;`,

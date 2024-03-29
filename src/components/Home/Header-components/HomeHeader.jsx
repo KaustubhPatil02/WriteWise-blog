@@ -43,7 +43,7 @@ const HomeHeader = () => {
          {pathname === "/write" ? (
           <button
           onClick={()=> setPublish(true)} 
-          className='btn bg-green-700 text-white rounded-full px-2 py-1 item-center'>Publish</button>
+          className='btn bg-write text-white rounded-full px-2 py-1 item-center'>Publish</button>
          ): (
           <Link to="/write" className='hidden md:flex items-center gap-1 text-gray-600'>
           <span className='text-xl text-white'>

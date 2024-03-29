@@ -10,7 +10,7 @@ const Demo = () => {
     <>
       <Banner />
       <div className="bg-header2">
-      <TrendingSection />
+      {/* <TrendingSection /> */}
       <div className="size flex flex-col-reverse py-7 md:flex-row gap-[7rem]">
         <div className="flex-[1]">
           <Posts  />
