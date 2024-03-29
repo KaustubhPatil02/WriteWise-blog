@@ -15,7 +15,7 @@ const PostCard = ({ post }) => {
     <>
       <div
         onClick={() => navigateToPost(`/post/${postId}`)}
-        className='flex flex-col sm:flex-row gap-4 cursor-pointer'
+        className='flex flex-col sm:flex-row gap-6rem cursor-pointer'
       >
         <div className='flex-[3rem]'>
           <p className='pb-2 font-semibold capitalize text-banner'>{getUserData?.username}</p>

@@ -8,7 +8,8 @@ const useSingleFetch = (collectionName, id, subCol) => {
 
   useEffect(() => {
     const getSingleData = () => {
-      if (collectionName) { // Check if collectionName is defined
+      if (collectionName && id && subCol) 
+      { // Check if collectionName, id and subCol are defined
         const postRef = query(collection(db, collectionName, id, subCol));
         onSnapshot(postRef, (snapshot) => {
           setData(
@@ -29,4 +30,3 @@ const useSingleFetch = (collectionName, id, subCol) => {
 };
 
 export default useSingleFetch;
-

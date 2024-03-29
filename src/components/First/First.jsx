@@ -9,15 +9,17 @@ const Demo = () => {
   return (
     <>
       <Banner />
+      <div className="bg-header2">
       <TrendingSection />
       <div className="size flex flex-col-reverse py-7 md:flex-row gap-[7rem]">
-        <div className="flex-[1.5]">
-          {/* <Posts /> */}
+        <div className="flex-[1]">
+          <Posts  />
         </div>
-        <div className="flex-[1] relative">
+        <div className="flex-[1.5] relative">
 
           <DiscoverFilters />
         </div>
+      </div>
       </div>
       
     </>

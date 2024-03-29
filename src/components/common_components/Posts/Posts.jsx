@@ -8,7 +8,8 @@ const Posts = () => {
   // console.log(data);
   
   return (
-    <section className='flex flex-col gap-[2.5rem]'>
+    <div className=''>
+      <section className='flex flex-col gap-[2.5rem]'>
       {loading ?(<Loading />) : (data.map((post, i) => <PostCard post={post} key={i}  />))}
       {/* {loading ? (
         <Loading />
@@ -18,6 +19,7 @@ const Posts = () => {
         <p>No posts found.</p>
       )} */}
     </section>
+    </div>
   );
 }
 

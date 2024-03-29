@@ -6,7 +6,7 @@ import Posts from '../common_components/Posts/Posts'
 const Home = () => {
   return (
     <div className='text-white bg-post1'>
-    <section className='size flex gap-[5rem] relative '>
+    <section className='size flex gap-[1rem] relative '>
       {/* left */}
       <div className='flex-[2] py-10 mb-[4rem]'>
         <Posts />
