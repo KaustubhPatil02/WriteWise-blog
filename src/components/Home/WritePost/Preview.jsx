@@ -125,7 +125,7 @@ const Preview = ({ setPublish, ideas, title }) => {
             />
           </div>
           <div className='flex-1 flex-col gap-[4] mb-5 md:mb-0'>
-            <h3 className='text-2xl text-white '>Publishing to: <span className='font-bold capitalize'>UserName</span></h3>
+            <h3 className='text-2xl text-white '>Publishing to: <span className='font-bold capitalize'>WriteWise-Blogs</span></h3>
             <div className='mt-5 gap-6'>
               <p className='text-gray-500'>Add tags according to your post, so it reaches the targeted readers</p>
               <TagsInput
