@@ -21,7 +21,7 @@ const Users = () => {
         <div key={i} className='flex items-start gap-3 my-4'>
           <div className='flex-1 flex items-center cursor-pointer gap-2'>
             <img
-              // onClick={() => navigateToUser(`/profile/${userId}`) }
+              // onClick={() => navigateToUser(`/profile/${uid}`) }
               className='w-[3rem] h-[3rem] rounded-full object-cover gap-4'
              src={userImg} alt="user's image" />
              <h2>{username}</h2>
