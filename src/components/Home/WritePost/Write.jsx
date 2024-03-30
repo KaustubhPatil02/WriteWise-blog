@@ -14,7 +14,7 @@ const Write = () => {
   };
 
   return (
-    <div className='bg-post1 min-h-screen'>
+    <div className='bg-header2 min-h-screen'>
       <section className='w-[90%] md:w-[80%] lg:w-[60%] mx-auto py-[3rem]'>
       <form onSubmit={handleSubmit}>
         <input
