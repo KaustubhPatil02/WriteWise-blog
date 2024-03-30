@@ -8,8 +8,8 @@ import useSingleFetch from '../../../hooks/UseSingleFetch';
 import { db } from '../../../../Firebase/firebase';
 
 const SavedPosts = ({ post }) => {
-  const [saved, setSaved] = useState(false);
-  const { currUser } = Blog();
+    const { currUser } = Blog();
+    const [saved, setSaved] = useState(false);
     const { data, loading } = useSingleFetch("users", 
     currUser?.uid, 
     // post?.uid,
@@ -22,33 +22,33 @@ const SavedPosts = ({ post }) => {
 
 
     const handleSaved = async () => {
-      try {
-        if (currUser && post) {
-          const saveRef = doc(
-            db,
-            "users",
-            currUser.uid,
-            "savedPosts",
-            post.id,
-          );
-    
-          // Use the setter function callback to ensure you're working with the latest state value
-          setSaved(prevSaved => !prevSaved);
-    
-          if (saved) {
-            await deleteDoc(saveRef);
-            toast.success("Post removed from saved posts");
-          } else {
-            await setDoc(saveRef, {
-              ...post,
-            });
-            toast.success("Post saved successfully");
+        try {
+          if (currUser) {
+            const saveRef = doc(
+              db,
+              "users",
+              currUser?.uid,
+              "savedPosts",
+              post?.uid,
+            );
+      
+            // Use the setter function callback to ensure you're working with the latest state value
+            setSaved(prevSaved => !prevSaved);
+      
+            if (saved) {
+              await deleteDoc(saveRef);
+              toast.success("Post removed from saved posts");
+            } else {
+              await setDoc(saveRef, {
+                ...post,
+              });
+              toast.success("Post saved successfully");
+            }
           }
+        } catch (error) {
+          toast.error(error.message);
         }
-      } catch (error) {
-        toast.error(error.message);
       }
-    }
       
     
 
