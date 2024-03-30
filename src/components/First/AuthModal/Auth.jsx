@@ -86,10 +86,10 @@ const Auth = ({modal, setModal}) => {
                       click={googleAuth}
                       icon={<FcGoogle className="text-2xl" />}
                       text={"Continue with Google"} />
-                    <Button
+                    {/* <Button
                       click={() => setSigReq(createUser ? "sign-up" : "sign-in")}
                       icon={<MdEmail className="text-2xl text-white" />}
-                      text={"Continue with EmailPassword"} />
+                      text={"Continue with EmailPassword"} /> */}
                   </div>
                   <p>
                     {createUser ? "Already have an account " : "No Account yet?"}

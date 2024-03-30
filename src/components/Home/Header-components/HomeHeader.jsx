@@ -23,7 +23,7 @@ const HomeHeader = () => {
 
 
   return (
-    <header className='border-b border-gray-400 bg-black '>
+    <header className='border-b border-gray-400 bg-header2 '>
       {userLoading && <Loading/>}
       <div className='size h-[70px] flex justify-between items-center '>
         <div className='flex items-center gap-3'>

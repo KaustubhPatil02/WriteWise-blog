@@ -131,7 +131,7 @@ const Preview = ({ setPublish, ideas, title }) => {
               <TagsInput
                 value={tagsInput}
                 onChange={setTagsInput}
-                className='bg-write text-xl'
+                className='bg-write text-2xl text-white'
               />
               <button 
               onClick={handleSubmit}

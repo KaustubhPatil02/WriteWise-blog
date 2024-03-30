@@ -12,7 +12,7 @@ const Home = () => {
         <Posts />
       </div>
       <div className='hidden md:inline-block md:w-[24rem]  p-10 border-l border-gray-500'>
-        <h3>Check out other users</h3>
+        <h3>Check out these users on the web</h3>
         <Users />
       </div>
     </section>

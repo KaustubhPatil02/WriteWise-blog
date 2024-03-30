@@ -29,7 +29,7 @@ const SavedPosts = ({ post }) => {
               "users",
               currUser?.uid,
               "savedPosts",
-              post?.id,
+              post?.uid,
             );
       
             // Use the setter function callback to ensure you're working with the latest state value
