@@ -10,9 +10,9 @@ const Home = () => {
         <div className='flex-1 py-10 mb-[4rem]'>
           <Posts />
         </div>
-        <div className='md:w-[24rem] p-10 border-t md:border-l border-gray-500  block'>
+        <div className='md:w-[24rem] p-10 border-t md:border-l border-gray-500 block'>
           <h3>Check out these users on the web</h3>
-          <Users />
+        <Users />
         </div>
       </section>
     </div>
@@ -20,3 +20,4 @@ const Home = () => {
 }
 
 export default Home
+
