@@ -69,7 +69,7 @@ const SinglePostView = () => {
             <div className='flex items-center gap-3 py-[3rem]'>
                 <img 
                 onClick={() => navigateToUser(`/profile/${userId}`) }
-                className='w-3[rem] h-[4rem] object-cover rounded-full cursor-pointer text-white' src={userImg} alt="" />
+                className='w-[4rem] h-[4rem] object-cover rounded-full cursor-pointer text-white' src={userImg} alt="" />
                 <div>
                     <div className='capitalize  text-white'>
                         <span>{username}</span>
@@ -96,7 +96,7 @@ const SinglePostView = () => {
 
             {/* postdesc */}
             <div className='mt-[3rem]'>
-                <img className='w-full h-[400px] object-cover ' src={postImg} alt="Post Image" />
+                <img className='w-full h-full object-cover ' src={postImg} alt="Post Image" />
                 <div className='mt-6  text-white' dangerouslySetInnerHTML={{__html: desc}} />
             </div>
         </section> 

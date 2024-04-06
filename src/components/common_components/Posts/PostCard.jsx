@@ -29,7 +29,7 @@ const PostCard = ({ post }) => {
         <div className='flex-[1]'>
           <img
             src={postImg} alt=""
-            className='w-[30rem]'
+            className='w-[40rem] h-[20rem] object-cover rounded-lg shadow-lg'
           />
         </div>
       </div>
