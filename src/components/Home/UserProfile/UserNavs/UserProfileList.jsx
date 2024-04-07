@@ -6,7 +6,7 @@ const UserProfileList = ({getUserData}) => {
   const { currUser } = Blog();
   const { data, loading } = useSingleFetch("users", 
   currUser?.uid, 
-  // post?.id,
+  // postId?.id,
   "savedPost");
   return (
     <div className='bg-header2 min-h-screen'>

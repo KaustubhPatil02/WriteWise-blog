@@ -2,6 +2,7 @@ import React from 'react'
 import useFetch from '../../hooks/UseFetch';
 import Loading from "../../../components/loading/Loading"
 import PostCard from './PostCard';
+import { useFetchers } from 'react-router-dom';
 
 const Posts = () => {
   const { data, loading } = useFetch("writewise-posts");

@@ -50,7 +50,7 @@ const SinglePostView = () => {
         };
         fetchPost()
     },[postId])
-    console.log(post)
+    // console.log(post)
 
     const {title,desc, postImg, username, created, userImg, userId} = post
 
