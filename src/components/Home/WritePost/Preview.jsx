@@ -36,7 +36,7 @@ const Preview = ({ setPublish, ideas, title }) => {
       setPreview({ ...preview, title: '' })
       setDesc('')
     }
-  }, [title, ideas ])
+  }, [title, ideas, preview])
 
   // const handleSubmit = async () => {
   //   setLoading(true);

@@ -63,7 +63,7 @@ const SinglePostView = () => {
     ) 
     : (
         <>
-        <div className='bg-header2'>
+        <div className='bg-header2 min-h-screen'>
         <section className='w-[90%] md:w-[80%] lg:w-[60%] mx-auto py-[3rem] '>
             <h2 className='text-4xl font-bold capitalize text-white'>{title}</h2>
             <div className='flex items-center gap-3 py-[3rem]'>
