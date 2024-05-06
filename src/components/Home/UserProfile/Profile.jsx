@@ -87,12 +87,18 @@ const Profile = () => {
           </div>
           {/* profile details */}
           <div className='sticky top-7 flex flex-col justify-between bg-header2'>
-            <img
+            {/* <img
               className='w-[3.5rem] h-[3.5rem] object-cover rounded-full'
               src={getUsersData?.userImg ||  "/loading.gif"} 
-              alt="" />
-            <h2 className='py-2 font-bold capitalize'>UserName</h2>
-            <p className='text-gray-300 first-letter:uppercase text-sm'>this is an bio para</p>
+              alt="" /> */}
+              <img
+  className='w-[3.5rem] h-[3.5rem] object-cover rounded-full'
+  src={getUsersData?.userImg ||  "/loading.gif"} 
+  alt="" 
+/>
+            {/* <h2 className='py-2 font-bold capitalize'>{getUsersData.username}</h2> */}
+            <h2 className='py-2 font-bold capitalize'>{getUsersData?.username}</h2>
+            <p className='text-gray-300 first-letter:uppercase text-sm'>{getUsersData?.bio}</p>
             <button onClick={() => setEditModal(true)} className='text-green-700 font-semibold pt-10 text-sm w-fit'>Edit your Profile</button>
           </div>
         </div>

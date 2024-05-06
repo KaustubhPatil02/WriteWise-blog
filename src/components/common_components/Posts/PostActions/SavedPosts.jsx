@@ -56,9 +56,9 @@ const SavedPosts = ({ post }) => {
         <button
             className='flex gap-2 hover:opacity-70'
             onClick={handleSaved}>
-            <span>Save this post</span>
+            <span className='text-gray-300 font-semibold'>Save this post</span>
             <BsFillSave2Fill className={`
-           text-2xl pointer-events-none 
+           text-2xl pointer-events-none  text-gray-300
            ${saved ? "text-banner" : ""}
            `} />
 
@@ -67,3 +67,5 @@ const SavedPosts = ({ post }) => {
 }
 
 export default SavedPosts;
+
+
