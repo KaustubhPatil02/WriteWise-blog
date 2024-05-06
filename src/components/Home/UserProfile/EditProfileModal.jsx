@@ -36,6 +36,7 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
 
   // input form save data
   const saveFormData = async () => {
+    const curr
     if (formData.username === "" || formData.bio === "") {
       toast.error("Please fill all the fields");
       return;
