@@ -1,3 +1,4 @@
+![My Image](./public/writewise.png)
 # Made using React + Vite ⚡✨
 
 This an Blog Application inspired from medium. Many features or elements are styled from seeing medium ✨.
@@ -20,5 +21,3 @@ Features:
 - Frontend: ReactJS for a performant and interactive user interface.
 - Styling: Tailwind CSS for rapid UI development and a consistent design language.
 - Backend: Firebase for a scalable and secure foundation, offering features like user authentication and data storage.
-
-![My Image](./public/writewise.png)
