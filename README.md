@@ -21,3 +21,4 @@ Features:
 - Styling: Tailwind CSS for rapid UI development and a consistent design language.
 - Backend: Firebase for a scalable and secure foundation, offering features like user authentication and data storage.
 
+![My Image](./writewise.png)
