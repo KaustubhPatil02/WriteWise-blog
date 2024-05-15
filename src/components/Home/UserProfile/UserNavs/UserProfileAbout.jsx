@@ -18,7 +18,7 @@ const UserProfileAbout = ({getUsersData, setEditModal}) => {
         }
       </div>
       <div>
-        <h1 className='text-4xl'>Here are my Social Handles:</h1>
+        <h1 className='text-4xl mt-10'>Here are my Social Handles:</h1>
         {(!getUsersData?.socialhandles1 && !getUsersData?.socialhandles2 && !getUsersData?.socialhandles3) ? 
           <p className='mt-5'>User hasn't added any social handles yet.</p> :
           <>
