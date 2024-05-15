@@ -21,10 +21,10 @@ const Profile = () => {
       title: "Home",
       comp: UserProfileHome
     },
-    {
-      title: "List",
-      comp: UserProfileList,
-    },
+    // {
+    //   title: "List",
+    //   comp: UserProfileList,
+    // },
     {
       title: "About",
       comp: UserProfileAbout,
