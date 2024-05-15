@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { db, storage } from '../../../Firebase/firebase';
 import { doc, updateDoc } from 'firebase/firestore';
-// import Loading from '../../loading/Loading';
 
 const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
   const imgRef = useRef(null);
@@ -15,13 +14,15 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
     username: "",
     userImg: "",
     bio: "",
+    socialhandles1: "",
+    socialhandles2: "",
+    socialhandles3: "",
   });
 
   const fileOpen = () => {
     imgRef.current.click();
   }
 
-  // if there is some data about user then it will be shown here from database.
   useEffect(() => {
     if (getUsersData) {
       setFormData(getUsersData)
@@ -30,11 +31,13 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
         username: "",
         userImg: "",
         bio: "",
+        socialhandles1: "",
+        socialhandles2: "",
+        socialhandles3: "",
       })
     }
   }, [getUsersData])
 
-  // input form save data
   const saveFormData = async () => {
     if (formData.username === "" || formData.bio === "") {
       toast.error("Please fill all the fields");
@@ -48,13 +51,15 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
 
     const imageUrl =  await getDownloadURL(storageRef);
     try {
-      // eslint-disable-next-line react/prop-types
       const docRef = doc(db, "users", getUsersData.userId );
       await updateDoc(docRef, {
         bio: formData.bio,
         username: formData.username,
         userImg: imgUrl ? imageUrl :formData.userImg ,
-        userId: formData?.userId
+        userId: formData?.userId,
+        socialhandles1: formData.socialhandles1,
+        socialhandles2: formData.socialhandles2,
+        socialhandles3: formData.socialhandles3,
       });
     setLoading(false);
     setEditModal(false);
@@ -63,17 +68,12 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
     } catch (error) {
       toast.error(error.message)
     }
-    // else {
-    //   console.log(formData);
-    // }
   }
 
   return (
     <Modal modal={editModal} setModal={setEditModal}>
       <div className='center w-[95] md:w-[50rem] bg-header2 mx-auto shadows-sm my-[1rem] z-10 mb-[3rem] p-[2rem] shadow'>
-        {/* edit functionality for users */}
         <div className='flex flex-center justify-between'>
-          {/* uppersection */}
           <h2 className='font-semibold text-3xl'>Your Profile Information</h2>
           <button
             onClick={() => setEditModal(false)}
@@ -81,12 +81,10 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
             <IoIosCloseCircle />
           </button>
         </div>
-        {/* midsection */}
         <section className='mt-6 bg'>
           <p className='pb-3 text-sm text-gray-400'>Avatar</p>
           <div className='flex gap-[2rem]'>
             <div className='w-[5rem]'>
-              {/* profile avtar*/}
               <img
                 src={imgUrl ? imgUrl :formData.userImg ? formData.userImg : '/loading.gif'}
                 className='min-h-[5rem] min-w-[5rem] object-cover rounded-full border border-gray-300 border-radius'
@@ -103,15 +101,12 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
                 }}
               />
             </div>
-            <>
-              <div className='flex gap-4 text-sm'>
-                <button onClick={fileOpen} className='text-green-700 '>Update</button>
-                <button className='text-red-700'>Remove</button>
-              </div>
-            </>
+            <div className='flex gap-4 text-sm'>
+              <button onClick={fileOpen} className='text-green-700 '>Update</button>
+              <button className='text-red-700'>Remove</button>
+            </div>
           </div>
         </section>
-        {/* lowersection */}
         <section className='pt-[1rem] text-sm '>
           <label htmlFor="" className='pb-3 block'>Name*</label>
           <input
@@ -138,8 +133,37 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
             <p className='text-sm pt-2 text-gray-500'>
               Appears on your Profile and next to your blogs.{formData.bio.length}/200</p>
           </section>
+          <section className='pt-[1rem] text-sm'>
+            <label htmlFor="" className='pb-3 block'>Social Handle 1 </label>
+            <input
+              className='outline-none p-1 w-full border-b border-white bg-header2'
+              type="text"
+              placeholder='SocialHandles1 profile link'
+              value={formData.socialhandles1}
+              onChange={(e) => setFormData({ ...formData, socialhandles1: e.target.value })}
+            />
+          </section>
+          <section className='pt-[1rem] text-sm'>
+            <label htmlFor="" className='pb-3 block'>SocialHandles 2</label>
+            <input
+              className='outline-none p-1 w-full border-b border-white bg-header2'
+              type="text"
+              placeholder='SocialHandles 2 profile link'
+              value={formData.socialhandles2}
+              onChange={(e) => setFormData({ ...formData, socialhandles2: e.target.value })}
+            />
+          </section>
+          {/* <section className='pt-[1rem] text-sm'>
+            <label htmlFor="" className='pb-3 block'>SocialHandles-3</label>
+            <input
+              className='outline-none p-1 w-full border-b border-white bg-header2'
+              type="text"
+              placeholder='SocialHandles-3 profile link'
+              value={formData.socialhandles3}
+              onChange={(e) => setFormData({ ...formData, socialhandles3: e.target.value })}
+            />
+          </section> */}
         </section>
-        {/* save btn and cancel btn */}
         <div className='flex items-center justify-end gap-4 pt-[2rem]'>
           <button onClick={saveFormData} className='bg-green-700 py-2 px-5 text-white rounded-full'>Save</button>
           <button onClick={() => setEditModal(false)} className=' bg-red-700 py-2 px-5 text-white rounded-full '>Cancel</button>
