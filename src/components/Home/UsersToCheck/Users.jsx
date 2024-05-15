@@ -9,7 +9,8 @@ const Users = () => {
   const { currUser } = Blog();
   // const {}
   const [count, setCount] = useState(5);
-  const usersProfiles = data && data?.slice(0, 7).filter((user) => user?.userid !== currUser?.uid)
+  const usersProfiles = data && data?.slice(0, 11).filter((user) => user?.id !== currUser?.uid)
+  // const usersProfiles = data && data?.slice(0, 7).filter((user) => user?.userid !== currUser?.uid)
   // console.log(usersProfiles)
   const navigateToUser = useNavigate()
   return (
