@@ -13,6 +13,7 @@ import { useParams } from 'react-router-dom';
 import { Blog } from '../../../contextAPI/Context';
 
 const Profile = () => {
+  const { currUser } = Blog();
   const { allUsers } = Blog();
   const { userId } = useParams();
   const userNavs = [
@@ -99,7 +100,13 @@ const Profile = () => {
             {/* <h2 className='py-2 font-bold capitalize'>{getUsersData.username}</h2> */}
             <h2 className='py-2 font-bold capitalize'>{getUsersData?.username}</h2>
             <p className='text-gray-300 first-letter:uppercase text-sm'>{getUsersData?.bio}</p>
-            <button onClick={() => setEditModal(true)} className='text-green-700 font-semibold pt-10 text-sm w-fit'>Edit your Profile</button>
+            <button
+                onClick={() => setEditModal(true)}
+                className='text-green-700 font-semibold pt-10 text-sm w-fit'
+                style={{ display: currUser.uid === userId ? 'block' : 'none' }}
+              >
+                Edit your Profile
+              </button>
           </div>
         </div>
 
