@@ -87,11 +87,11 @@ const Preview = ({ setPublish, ideas, title }) => {
         return;
       }
       if(tagsInput.length === 0){
-        toast.info('You must have been forgotten to add tags related to your post');
+        toast.info('Please add Tags related to your post');
         return;
       }
       if (!preview.bannerImg) {
-        toast.info('Please add a banner image');
+        toast.info('A banner image is required to publish the post');
         return;
       }
       const collections = collection(db, "writewise-posts");
