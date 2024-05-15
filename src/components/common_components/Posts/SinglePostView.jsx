@@ -95,13 +95,13 @@ const SinglePostView = () => {
                                 <div className='flex items-center justify-between border-b border-gray-300'>
                                     {/* left */}
                                     <div className='flex items-center gap-6  text-white'>
-                                        <Like />
-                                        <Comments />
+                                        {/* <Like />
+                                        <Comments /> */}
                                     </div>
                                     {/* right */}
                                     <div className='flex items-center pt-2 gap-5  text-white'>
-                                        {post && <SavedPosts post={post} />}
-                                        <SharePost />
+                                        {/* {post && <SavedPosts post={post} />} */}
+                                        {/* <SharePost /> */}
                                         {/* <ActionBtn /> */}
                                     </div>
                                 </div>
