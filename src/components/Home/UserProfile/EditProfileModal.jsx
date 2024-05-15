@@ -45,6 +45,14 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
     } 
     setLoading(true);
 
+      // Ensure all fields in formData are defined
+  const finalFormData = {
+    ...formData,
+    socialhandles1: formData.socialhandles1 || "",
+    socialhandles2: formData.socialhandles2 || "",
+    socialhandles3: formData.socialhandles3 || "",
+  };
+
     const storageRef = ref(storage, `images/${formData.userImg.name}`);
 
     await uploadBytes(storageRef, formData?.userImg);
@@ -153,7 +161,7 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
               onChange={(e) => setFormData({ ...formData, socialhandles2: e.target.value })}
             />
           </section>
-          {/* <section className='pt-[1rem] text-sm'>
+          <section className='pt-[1rem] text-sm'>
             <label htmlFor="" className='pb-3 block'>SocialHandles-3</label>
             <input
               className='outline-none p-1 w-full border-b border-white bg-header2'
@@ -162,7 +170,7 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
               value={formData.socialhandles3}
               onChange={(e) => setFormData({ ...formData, socialhandles3: e.target.value })}
             />
-          </section> */}
+          </section>
         </section>
         <div className='flex items-center justify-end gap-4 pt-[2rem]'>
           <button onClick={saveFormData} className='bg-green-700 py-2 px-5 text-white rounded-full'>Save</button>
