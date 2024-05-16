@@ -39,47 +39,7 @@ const Preview = ({ setPublish, ideas, title }) => {
     }
   }, [title, ideas, preview.title, desc])
 
-  // const handleSubmit = async () => {
-  //   setLoading(true);
-  //   try {
-  //     if (preview.title === '' || desc === '') {
-  //       toast.error('Please fill all the fields');
-  //       return;
-
-  //       }
-  //       if(tagsInput.length === 0){
-  //         toast.error('You must have been forgotten to add tags related to your post');
-  //         return;
-  //     }
-  //     const collections = collection(db, "writewise-posts");
-  //     const storageRef = ref(storage, `images/${preview.bannerImg.name}`);
-
-  //     await uploadBytes(storageRef, preview?.bannerImg);
-
-  //     const imageUrl =  await getDownloadURL(storageRef);
-
-  //     // pushing data into the database.
-  //     await addDoc(collections,{
-  //       userId: currUser.uid,
-  //       title: preview.title,
-  //       desc,
-  //       tagsInput,
-  //       postImg: imageUrl,
-  //       created: Date.now(),
-  //       PageViews:0
-  //     })
-  //     toast.success('Post published successfully');
-  //     navigate('/');
-  //     setPublish(false);
-  //     setPreview({ title: '', bannerImg: '' })
-  //   } catch (error) {
-  //     toast.error('Something went wrong');
-
-  //   }
-  //   finally{
-  //     setLoading(false);
-  //   }
-  // }
+  
   const handleSubmit = async () => {
     setLoading(true);
     try {
