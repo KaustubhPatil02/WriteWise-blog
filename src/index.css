@@ -33,3 +33,7 @@ body {
   font-size: 1.2rem !important;
   padding: 0 !important;
 }
+.ql-editor.ql-blank::before {
+  color: whitesmoke !important;
+  font-size: 25px !important; /* adjust as needed */
+}
