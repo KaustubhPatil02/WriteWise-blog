@@ -10,7 +10,7 @@ import { Blog } from '../../../contextAPI/Context';
 import { useNavigate } from 'react-router-dom';
 
 const Preview = ({ setPublish, ideas, title }) => {
-  const {currUser} = Blog();
+  const { currUser } = Blog();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
@@ -28,15 +28,16 @@ const Preview = ({ setPublish, ideas, title }) => {
   })
 
   useEffect(() => {
-    if (title || ideas) {
-      setPreview({ ...preview, title: title })
-      setDesc(ideas)
+    if (preview.title !== title && title || ideas) {
+      setPreview(prev => ({
+        ...prev,
+        title: title
+      }));
     }
-    else {
-      setPreview({ ...preview, title: '' })
-      setDesc('')
+    if (desc !== ideas && title || ideas) {
+      setDesc(ideas);
     }
-  }, [title, ideas, preview])
+  }, [title, ideas, preview.title, desc])
 
   // const handleSubmit = async () => {
   //   setLoading(true);
@@ -44,7 +45,7 @@ const Preview = ({ setPublish, ideas, title }) => {
   //     if (preview.title === '' || desc === '') {
   //       toast.error('Please fill all the fields');
   //       return;
-       
+
   //       }
   //       if(tagsInput.length === 0){
   //         toast.error('You must have been forgotten to add tags related to your post');
@@ -54,7 +55,7 @@ const Preview = ({ setPublish, ideas, title }) => {
   //     const storageRef = ref(storage, `images/${preview.bannerImg.name}`);
 
   //     await uploadBytes(storageRef, preview?.bannerImg);
-  
+
   //     const imageUrl =  await getDownloadURL(storageRef);
 
   //     // pushing data into the database.
@@ -73,7 +74,7 @@ const Preview = ({ setPublish, ideas, title }) => {
   //     setPreview({ title: '', bannerImg: '' })
   //   } catch (error) {
   //     toast.error('Something went wrong');
-      
+
   //   }
   //   finally{
   //     setLoading(false);
@@ -86,7 +87,7 @@ const Preview = ({ setPublish, ideas, title }) => {
         toast.error('Please fill all the fields');
         return;
       }
-      if(tagsInput.length === 0){
+      if (tagsInput.length === 0) {
         toast.info('Please add Tags related to your post');
         return;
       }
@@ -96,20 +97,20 @@ const Preview = ({ setPublish, ideas, title }) => {
       }
       const collections = collection(db, "writewise-posts");
       const storageRef = ref(storage, `images/${preview.bannerImg.name}`);
-  
+
       await uploadBytes(storageRef, preview?.bannerImg);
-  
-      const imageUrl =  await getDownloadURL(storageRef);
-  
+
+      const imageUrl = await getDownloadURL(storageRef);
+
       // pushing data into the database.
-      await addDoc(collections,{
+      await addDoc(collections, {
         userId: currUser.uid,
         title: preview.title,
         desc,
         tagsInput,
         postImg: imageUrl,
         created: Date.now(),
-        PageViews:0
+        PageViews: 0
       })
       toast.success('Post published successfully');
       navigate('/');
@@ -117,21 +118,21 @@ const Preview = ({ setPublish, ideas, title }) => {
       setPreview({ title: '', bannerImg: '' })
     } catch (error) {
       toast.error('Something went wrong');
-      
+
     }
-    finally{
+    finally {
       setLoading(false);
     }
   }
 
   return (
     // <div className='bg-header1'>
-      <section className='absolute inset-0 bg-header2 z-30'>
+    <section className='absolute inset-0 bg-header2 z-30'>
       <div className='size my-[2rem]'>
         <span
           onClick={() => setPublish(false)}
           className='absolute right-[1rem] md:right-[5rem] top-[3rem] text-2xl cursor-pointer'>
-          <IoIosCloseCircle className='text-4xl text-white'/>
+          <IoIosCloseCircle className='text-4xl text-white' />
         </span>
         <div className='mt-[8rem] flex flex-col md:flex-row gap-10'>
           <div className='flex-1'>
@@ -174,11 +175,16 @@ const Preview = ({ setPublish, ideas, title }) => {
               <TagsInput
                 value={tagsInput}
                 onChange={setTagsInput}
-                className='bg-write text-2xl text-white'
+                className='bg-write text-2xl'
+                inputProps={{
+                  style: {
+                    color: 'white'
+                  }
+                }}
               />
-              <button 
-              onClick={handleSubmit}
-              className='!bg-banner text-header1 font-semibold rounded-full px-3 py-2 mt-20'>
+              <button
+                onClick={handleSubmit}
+                className='!bg-banner text-header1 font-semibold rounded-full px-3 py-2 mt-20'>
                 {loading ? 'Publishing...' : 'Publish Now :)'}
               </button>
             </div>

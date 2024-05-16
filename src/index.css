@@ -37,3 +37,17 @@ body {
   color: whitesmoke !important;
   font-size: 25px !important; /* adjust as needed */
 }
+
+
+.custom-tags-input ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: pink;
+}
+.custom-tags-input ::-moz-placeholder { /* Firefox 19+ */
+  color: pink;
+}
+.custom-tags-input :-ms-input-placeholder { /* IE 10+ */
+  color: pink;
+}
+.custom-tags-input :-moz-placeholder { /* Firefox 18- */
+  color: pink;
+}
