@@ -4,6 +4,8 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 import { auth, db } from '../Firebase/firebase';
 import Loading from '../components/loading/Loading';
 import { collection, onSnapshot, query } from 'firebase/firestore';
+import { set } from 'firebase/database';
+import UseFetch from '../components/hooks/UseFetch';
 const BlogContext = createContext();
 
 // eslint-disable-next-line react/prop-types
@@ -15,11 +17,12 @@ const Context = ({ children }) => {
 
   const [allUsers, setAllUsers] = useState([]);
   const [publish, setPublish] = useState(false);
+  const [title, setTitle] = useState("");
 
-  useEffect(() =>{
-    const getUsers =()=>{
-      const postRef= query(collection(db, 'users'));
-      onSnapshot(postRef, (snapshot) =>{
+  useEffect(() => {
+    const getUsers = () => {
+      const postRef = query(collection(db, 'users'));
+      onSnapshot(postRef, (snapshot) => {
         setAllUsers(
           snapshot.docs.map((doc) => ({
             ...doc.data(),
@@ -30,26 +33,57 @@ const Context = ({ children }) => {
       });
     };
     getUsers();
-    
-  },[])
-  // console.log(allUsers)
 
-  useEffect(() =>{
-    setLoading(true);
-    const unsubscribe =onAuthStateChanged(auth, (user) =>{
-      if(user){
-        setCurrUser(user)
-      }else{
-        setCurrUser(null)
-      }
-      setLoading(false);
-    });
-    return () => unsubscribe();
-  },[currUser]);
+  }, [])
+  // console.log(allUsers)
+// new
+ useEffect(() => {
+  setLoading(true);
+  const unsubscribe = onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrUser(user)
+    } else {
+      setCurrUser(null)
+    }
+    setLoading(false);
+  });
+  // Clean up the subscription on unmount
+  return () => unsubscribe();
+}, []); // Removed currUser from the dependency array
+// old
+// useEffect(() => {
+//   setLoading(true);
+//   const unsubscribe = onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//       setCurrUser(user)
+//     } else {
+//       setCurrUser(null)
+//     }
+//     setLoading(false);
+//   });
+//   return () => unsubscribe();
+// }, [currUser]);
+
+
+
+
+  const { data: postData, loading: postLoading } = UseFetch("posts");
 
   return (
-    <BlogContext.Provider value={{ currUser, setCurrUser, allUsers, userLoading,publish, setPublish }}>
-      {loading ? <Loading /> : children  }
+    <BlogContext.Provider value={{ 
+      currUser, 
+      setCurrUser, 
+      allUsers, 
+      userLoading, 
+      publish, 
+      setPublish,
+      title,
+      setTitle,
+      postData,
+      postLoading,
+
+     }}>
+      {loading ? <Loading /> : children}
       {/* {children } */}
     </BlogContext.Provider>
   );
