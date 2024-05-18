@@ -32,14 +32,14 @@ const HomeHeader = () => {
            {/* <img src="../../../assets/logo2.png" alt="" /> */}
           </span>
           </a>
-          <SearchBlogs modal={searchModal} setModal={setSearchModal} />
+          {/* <SearchBlogs modal={searchModal} setModal={setSearchModal} /> */}
         </div>
         <div className='flex items-center gap-4 sm:gap-6 '>
-          <span
+          {/* <span
             onClick={() => setSearchModal(true)}
             className='text-3xl text-gray-400 flex sm:hidden cursor-pointer'>
             <CiSearch />
-          </span>
+          </span> */}
          {pathname === "/write" ? (
           <button
           onClick={()=> setPublish(true)} 

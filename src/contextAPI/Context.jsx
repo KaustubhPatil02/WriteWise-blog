@@ -67,7 +67,7 @@ const Context = ({ children }) => {
 const [updateData, setUpdateData] = useState({});
 
 
-  const { data: postData, loading: postLoading } = UseFetch("posts");
+  const { data: postData, loading: postLoading } = UseFetch("writewise-posts");
 
   return (
     <BlogContext.Provider value={{ 
