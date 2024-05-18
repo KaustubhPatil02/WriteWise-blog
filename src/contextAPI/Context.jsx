@@ -4,7 +4,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 import { auth, db } from '../Firebase/firebase';
 import Loading from '../components/loading/Loading';
 import { collection, onSnapshot, query } from 'firebase/firestore';
-import { set } from 'firebase/database';
+// import { set } from 'firebase/database';
 import UseFetch from '../components/hooks/UseFetch';
 const BlogContext = createContext();
 
@@ -64,7 +64,7 @@ const Context = ({ children }) => {
 //   return () => unsubscribe();
 // }, [currUser]);
 
-
+const [updateData, setUpdateData] = useState({});
 
 
   const { data: postData, loading: postLoading } = UseFetch("posts");
@@ -81,6 +81,8 @@ const Context = ({ children }) => {
       setTitle,
       postData,
       postLoading,
+      updateData,
+      setUpdateData,
 
      }}>
       {loading ? <Loading /> : children}

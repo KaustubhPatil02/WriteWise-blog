@@ -4,9 +4,13 @@ import { readTime } from '../../../utility/supporter';
 import moment from 'moment';
 import SavedPosts from './PostActions/SavedPosts';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../loading/Loading'
+import { Blog } from '../../../contextAPI/Context';
+import Actions from './PostActions/Actions';
 
 const PostCard = ({ post }) => {
   const { title, desc, created, postImg, id: postId, userId } = post;
+  const { currUser } = Blog();
   const { data, loading } = UseFetch("users");
   const getUsersData = data && data.find((user) => user?.id === userId);
   const navigateToPost = useNavigate();
@@ -17,6 +21,7 @@ const PostCard = ({ post }) => {
         onClick={() => navigateToPost(`/post/${postId}`)}
         className='flex flex-col sm:flex-row gap-6rem cursor-pointer'
       >
+        {loading && <Loading />}
         <div className='flex-[3rem]'>
           <p className='pb-2 font-semibold capitalize text-banner'>{getUsersData?.username}</p>
           <h2 className="text-xl font-bold line-clamp-4 leading-10 capitalize text-white">
@@ -52,6 +57,7 @@ const PostCard = ({ post }) => {
         </p>
         <div className=' flex items-center gap-4'>
           {/* <SavedPosts post={post} getUsersData={getUsersData}/> */}
+          {currUser?.uid === userId &&<Actions post={post}/>}
         </div>
       </div>
     </section>
