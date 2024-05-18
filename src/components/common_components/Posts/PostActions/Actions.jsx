@@ -6,6 +6,7 @@ import { db } from '../../../../Firebase/firebase';
 import { Blog } from '../../../../contextAPI/Context';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { HiDotsHorizontal } from "react-icons/hi";
 
 const Actions = ({ postId, title, desc}) => {
   const {currUser, setUpdateData } = Blog();
@@ -47,7 +48,7 @@ const Actions = ({ postId, title, desc}) => {
   };
   return (
     <div className='relative'>
-      <button onClick={handleClick}><BiDotsHorizontal className='text-2xl'/></button>
+      <button onClick={handleClick}><HiDotsHorizontal className='text-3xl'/></button>
       <DropDown showDrop={showDrop} setShowDrop={setShowDrop} size="w-[7rem]">
         <Button click={handleEdit} title="Edit"/>
         <Button click={handleDelete} title="Delete"/>
