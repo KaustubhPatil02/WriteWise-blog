@@ -16,7 +16,7 @@ const Posts = () => {
           data.map((post, i) => <PostCard post={post} key={i} />)
         ) : (
           <div className='flex flex-col gap-2'><h1 className='text-3xl text-gray-400'>No posts found. Oops!</h1>
-          <p className='text-gray-400'>Why don&apos;t you create one instead !</p></div>
+          <p className='text-gray-400'>Why don&apos;t you create one instead!</p></div>
         )}
       </section>
     </div>
