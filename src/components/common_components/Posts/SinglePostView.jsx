@@ -75,7 +75,7 @@ const SinglePostView = () => {
                                             if (currUser) {
                                                 navigateToUser(`/profile/${userId}`);
                                             } else {
-                                                toast.info('You are being redirected because you are not authenticated.');
+                                                toast.info('Please login to view the profile');
                                                 navigateToUser(`/First`);
                                             }
                                         }}
