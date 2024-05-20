@@ -11,6 +11,7 @@ import HomeHeader from './components/Home/Header-components/HomeHeader';
 import Auth from './components/First/AuthModal/Auth';
 import SignIn from './components/First/AuthModal/SignIn';
 import Posts from './components/common_components/Posts/Posts';
+import Edit from './components/common_components/Posts/PostActions/Edit';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <Route path='/getstarted' element={<Write />} /> 
       <Route path='/write' element={<Write />} />
       <Route path='/post/:postId' element={<SinglePostView />} />
+      <Route path='/edit/:postId' element={<Edit />} />
 
       <Route  path='*' element={<Navigate to={!currUser ? "/First" : "/"} />} />
     </Routes>

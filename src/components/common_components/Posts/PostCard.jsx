@@ -57,7 +57,7 @@ const PostCard = ({ post }) => {
         </p>
         <div className=' flex items-center gap-4'>
           {/* <SavedPosts post={post} getUsersData={getUsersData}/> */}
-          {currUser?.uid === userId &&<Actions post={post}/>}
+          {currUser?.uid === userId && <Actions post={post} postId={postId} title={title} desc={desc}/>}
         </div>
       </div>
     </section>

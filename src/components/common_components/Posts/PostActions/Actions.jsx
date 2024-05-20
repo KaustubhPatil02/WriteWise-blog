@@ -8,8 +8,8 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { HiDotsHorizontal } from "react-icons/hi";
 
-const Actions = ({ postId, title, desc}) => {
-  const {currUser, setUpdateData } = Blog();
+const Actions = ({ postId, title, desc }) => {
+  const { currUser, setUpdateData } = Blog();
   const [showDrop, setShowDrop] = useState(false);
   const handleClick = () => {
     setShowDrop(!showDrop);
@@ -20,20 +20,9 @@ const Actions = ({ postId, title, desc}) => {
   const handleDelete = async () => {
     try {
       const ref = doc(db, "writewise-posts", postId);
-      const likeRef = doc(db, "posts", postId, "likes", currUser?.uid);
-      const commentRef = doc(db, "posts", postId, "comments", currUser?.uid);
-      const savedPostRef = doc(
-        db,
-        "users",
-        currUser?.uid,
-        "savedPost",
-        postId
-      );
       await deleteDoc(ref);
-      await deleteDoc(likeRef);
-      await deleteDoc(commentRef);
-      await deleteDoc(savedPostRef);
-  
+
+
       toast.success("post has been removed");
       setShowDrop(false);
       navigate("/");
@@ -41,17 +30,18 @@ const Actions = ({ postId, title, desc}) => {
       toast.success(error.message);
     }
   };
-  
+
   const handleEdit = () => {
-    navigate(`/editPost/${postId}`);
-    setUpdateData({ title, description: desc });
+    navigate(`/edit/${postId}`);
+    setUpdateData({ title, desc: desc });
   };
   return (
     <div className='relative'>
-      <button onClick={handleClick}><HiDotsHorizontal className='text-3xl'/></button>
+      <button onClick={handleClick}><HiDotsHorizontal className='text-3xl' /></button>
       <DropDown showDrop={showDrop} setShowDrop={setShowDrop} size="w-[7rem]">
-        <Button click={handleEdit} title="Edit"/>
-        <Button click={handleDelete} title="Delete"/>
+        {/* <Button click={()=> navigate(`/edit/${postId}`)} title="Edit"/> */}
+        <Button click={handleEdit} title="Edit" />
+        <Button click={handleDelete} title="Delete" />
       </DropDown >
     </div>
   )

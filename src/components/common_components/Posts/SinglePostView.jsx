@@ -14,6 +14,7 @@ import SharePost from './PostActions/SharePost';
 import Comments from './PostActions/Comments';
 import Like from './PostActions/Like';
 import { Blog } from '../../../contextAPI/Context';
+import Actions from './PostActions/Actions';
 
 const SinglePostView = () => {
     const { currUser } = Blog()
@@ -103,6 +104,8 @@ const SinglePostView = () => {
                                         {/* {post && <SavedPosts post={post} />} */}
                                         {/* <SharePost /> */}
                                         {/* <ActionBtn /> */}
+
+                                        {currUser?.uid === post?.userId && <Actions postId={postId} title={title} desc= {desc}/>}
                                     </div>
                                 </div>
 

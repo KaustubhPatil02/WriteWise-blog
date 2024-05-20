@@ -18,6 +18,11 @@ const Context = ({ children }) => {
   const [allUsers, setAllUsers] = useState([]);
   const [publish, setPublish] = useState(false);
   const [title, setTitle] = useState("");
+const [updateData, setUpdateData] = useState({});
+
+// const [title, setTitle] = useState('')
+const [desc, setDesc] = useState('')
+
 
   useEffect(() => {
     const getUsers = () => {
@@ -64,7 +69,6 @@ const Context = ({ children }) => {
 //   return () => unsubscribe();
 // }, [currUser]);
 
-const [updateData, setUpdateData] = useState({});
 
 
   const { data: postData, loading: postLoading } = UseFetch("writewise-posts");
@@ -83,6 +87,8 @@ const [updateData, setUpdateData] = useState({});
       postLoading,
       updateData,
       setUpdateData,
+      desc,
+      setDesc
 
      }}>
       {loading ? <Loading /> : children}
