@@ -10,7 +10,7 @@ const DiscoverFilters = () => {
                 <button key={i}
                 className='bg-banner  text-header2 font-extrabold py-2 px-3 text-sm rounded-full'> {item} </button>
             ))} </div>
-        <button className='text-green-900 text-sm py-3 font-semibold hover:text-black items-center'>Explore more!</button>
+        <button className='text-green-900 text-xl py-3 font-semibold hover:text-green-300 items-center'>Explore more!</button>
         </div>
     </div>
   )
