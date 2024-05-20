@@ -13,10 +13,10 @@ const Banner = () => {
         <i className='text-yellow-500'> WriteWise</i>
         </p>
         <button
-        onClick={() => window.location.href = "/getstarted"} 
-        className="btn bg-banner rounded-full text-white font-semibold !text-[1.2rem] !px-6 !mt-[2.5rem] ">
-          Start Writing
-        </button>
+    onClick={() => window.location.href = "/getstarted"} 
+    className="btn bg-banner rounded-full text-white custom-font-weight !text-[1.2rem] !px-6 !mt-[2.5rem] ">
+    Start Writing
+</button>
       </div>
     </div>
   )

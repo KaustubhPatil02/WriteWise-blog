@@ -51,3 +51,7 @@ body {
 .custom-tags-input :-moz-placeholder { /* Firefox 18- */
   color: pink;
 }
+
+.custom-font-weight {
+  font-weight: 700;
+}
