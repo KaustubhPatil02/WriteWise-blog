@@ -7,8 +7,10 @@ import { Blog } from '../../../../contextAPI/Context';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { HiDotsHorizontal } from "react-icons/hi";
+import ConfirmationModal from './ConfirmationModal';
 
 const Actions = ({ postId, title, desc }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { currUser, setUpdateData } = Blog();
   const [showDrop, setShowDrop] = useState(false);
   const handleClick = () => {
@@ -17,18 +19,22 @@ const Actions = ({ postId, title, desc }) => {
 
   const navigate = useNavigate(null);
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
+    setIsModalOpen(true);
+  };
+
+  const confirmDelete = async () => {
     try {
       const ref = doc(db, "writewise-posts", postId);
       await deleteDoc(ref);
 
-
-      toast.success("post has been removed");
+      toast.success("Post is deleted");
       setShowDrop(false);
       navigate("/");
     } catch (error) {
       toast.success(error.message);
     }
+    setIsModalOpen(false);
   };
 
   const handleEdit = () => {
@@ -39,10 +45,15 @@ const Actions = ({ postId, title, desc }) => {
     <div className='relative'>
       <button onClick={handleClick}><HiDotsHorizontal className='text-3xl' /></button>
       <DropDown showDrop={showDrop} setShowDrop={setShowDrop} size="w-[7rem]">
-        {/* <Button click={()=> navigate(`/edit/${postId}`)} title="Edit"/> */}
         <Button click={handleEdit} title="Edit" />
         <Button click={handleDelete} title="Delete" />
       </DropDown >
+      <ConfirmationModal 
+        isOpen={isModalOpen} 
+        onConfirm={confirmDelete} 
+        onCancel={() => setIsModalOpen(false)} 
+        message="Are you sure you want to delete this post?" 
+      />
     </div>
   )
 }
@@ -60,7 +71,3 @@ const Button = ({ click, title }) => {
     </button>
   );
 };
-
-
-
-
