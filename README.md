@@ -9,12 +9,12 @@ This Project gives a intermediate level knowledge of how to use use firebase in 
 Features:
 - Create a Post ✅
 - Read a Post ✅
-- Update
-- Delete 
+- Update ✅
+- Delete ✅
 - User Profile ✅
 - Authentication ✅
-- Search Post
-- Filter Post
+- Search Post ⚒️
+- Filter Post ⚒️
 ```
 ### Tech Stack:
 
