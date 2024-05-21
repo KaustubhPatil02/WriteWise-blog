@@ -15,7 +15,7 @@ Features:
 - Search Post ⚒ ✅
 - Display of other users and profile navigation ✅
 ```
-[![](https://app.eraser.io/workspace/chiTcsGBPDL50c4N8v7J/preview?elements=Q95t9K8NGOovZzwFq9LgxQ&type=embed)](https://app.eraser.io/workspace/chiTcsGBPDL50c4N8v7J?elements=Q95t9K8NGOovZzwFq9LgxQ)
+![My Image](./public/writewise.png)
 
 ### Tech Stack:
 
