@@ -13,18 +13,18 @@ import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../Firebase/firebase.js';
 
 const HomeHeader = () => {
-  const { allUsers, userLoading, currUser, setPublish, updateData, title, desc } = Blog();
-  // const [searchModal, setSearchModal] = useState(false);
+  const { allUsers, userLoading, currUser, setPublish, updateData, title, desc, postData } = Blog();
+  const [searchModal, setSearchModal] = useState(false);
   const [modal, setModal] = useState(false);
   const { pathname } = useLocation();
   const getUsersData = allUsers.find((user) => user.id === currUser?.uid);
   const [loading, setLoading] = useState(false);
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const editPath = pathname.split("/")[1]
   const postId = pathname.split("/")[2]
   // console.log(editPath);
-  const handleEdit = async ()=>{
+  const handleEdit = async () => {
     try {
       setLoading(true);
       const ref = doc(db, "writewise-posts", postId);
@@ -34,10 +34,11 @@ const navigate = useNavigate();
       });
       navigate(`/post/${postId}`)
       toast.success("Post has been updated");
-      
+
     } catch (error) {
-      
-    } finally{
+      toast.error("Can't update post, something went wrong")
+
+    } finally {
       setLoading(false);
 
     }
@@ -54,14 +55,18 @@ const navigate = useNavigate();
               {/* <img src="../../../assets/logo2.png" alt="" /> */}
             </span>
           </a>
-          {/* <SearchBlogs modal={searchModal} setModal={setSearchModal} /> */}
+          <SearchBlogs
+            modal={searchModal}
+            setModal={setSearchModal}
+            // postData={postData}
+          />
         </div>
         <div className='flex items-center gap-4 sm:gap-6 '>
-          {/* <span
+          <span
             onClick={() => setSearchModal(true)}
-            className='text-3xl text-gray-400 flex sm:hidden cursor-pointer'>
+            className="flex sm:hidden text-3xl text-gray-300 cursor-pointer">
             <CiSearch />
-          </span> */}
+          </span>
           {pathname === "/write" ? (
             <button
               onClick={() => setPublish(true)}
