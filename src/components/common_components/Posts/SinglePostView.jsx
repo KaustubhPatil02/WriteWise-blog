@@ -75,7 +75,7 @@ const SinglePostView = () => {
                                             if (currUser) {
                                                 navigateToUser(`/profile/${userId}`);
                                             } else {
-                                                toast.info('Please login to view the profile');
+                                                toast.info(`Please login to view ${username}'s profile`);
                                                 navigateToUser(`/First`);
                                             }
                                         }}
