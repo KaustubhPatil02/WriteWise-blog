@@ -13,8 +13,8 @@ Features:
 - Delete ✅
 - User Profile ✅
 - Authentication ✅
-- Search Post ⚒️
-- Filter Post ⚒️
+- Search Post ⚒ ✅
+- Display of other users and profile navigation ✅
 ```
 ### Tech Stack:
 
