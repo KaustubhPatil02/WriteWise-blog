@@ -1,4 +1,3 @@
-![My Image](./public/writewise.png)
 # Made using React + Vite ⚡✨
 
 This an Blog Application inspired from medium. Many features or elements are styled from seeing medium ✨.
@@ -16,6 +15,8 @@ Features:
 - Search Post ⚒ ✅
 - Display of other users and profile navigation ✅
 ```
+[![](https://app.eraser.io/workspace/chiTcsGBPDL50c4N8v7J/preview?elements=Q95t9K8NGOovZzwFq9LgxQ&type=embed)](https://app.eraser.io/workspace/chiTcsGBPDL50c4N8v7J?elements=Q95t9K8NGOovZzwFq9LgxQ)
+
 ### Tech Stack:
 
 - Frontend: ReactJS for a performant and interactive user interface.
