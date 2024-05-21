@@ -62,11 +62,11 @@ const HomeHeader = () => {
           />
         </div>
         <div className='flex items-center gap-4 sm:gap-6 '>
-          <span
+          {/* <span
             onClick={() => setSearchModal(true)}
             className="flex sm:hidden text-3xl text-gray-300 cursor-pointer">
             <CiSearch />
-          </span>
+          </span> */}
           {pathname === "/write" ? (
             <button
               onClick={() => setPublish(true)}
