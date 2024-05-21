@@ -30,7 +30,7 @@ const SearchBlogs = ({modal, setModal,}) => {
           </span>
           <input
             value={searchInput} onChange={e => setSearchInput(e.target.value)}
-            className='bg-transparent outline-none py-[0.4rem] text-sm w-[20rem]'
+            className='bg-transparent outline-none py-[0.4rem] text-sm w-[20rem] text-black'
             type="text" placeholder='Search WriteWise Blog for Posts'
           />
           {searchInput !== "" && (
@@ -46,7 +46,7 @@ const SearchBlogs = ({modal, setModal,}) => {
                           setSearchInput("");
                         }}
                         className="p-2 border-b border-gray-300 hover:bg-gray-100 cursor-pointer">
-                        <h2 className="line-clamp-1 capitalize text-sm font-bold">
+                        <h2 className="line-clamp-1 capitalize text-sm font-bold text-black">
                           {post.title}
                         </h2>
                         <div

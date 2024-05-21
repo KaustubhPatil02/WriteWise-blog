@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import { nav } from '../../data'
 import Auth from './AuthModal/Auth';
 import { MdTypeSpecimen } from "react-icons/md";
+import SearchBlogs from '../Home/Header-components/SearchBlogs';
+
+
 const FirstHeader = () => {
 
   const [isActive, setIsActive] = useState(false);
@@ -24,9 +27,12 @@ const FirstHeader = () => {
     ${isActive ? "bg-header2 " : "bg-header2 "}
     transition-all duration-500`}>
       <div className='size h-[70px] flex items-center justify-between'>
+        <div className='flex items-center gap-9'>
         <Link to={"/"}>
           <h1 className='text-4xl font-bold'>WriteWise</h1>
         </Link>
+        <SearchBlogs className="pl-7 text-black" />
+        </div>
         <div className="flex items-center gap-5">
           <div className="hidden text-sm sm:flex items-center gap-5 flex-col">
             {nav.map((link, i) => (
