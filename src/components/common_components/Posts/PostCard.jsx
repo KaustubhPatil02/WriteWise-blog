@@ -53,7 +53,7 @@ const PostCard = ({ post }) => {
       </div>
       <div className='flex items-center justify-between w-full md:w-[80%] mt-[3rem] md:mt-0'>
         <p className='text-sm text-gray-300'>
-          {readTime({ __html: desc })} min reading time. Created At {moment(created).format("DD-MM-YYYY")}
+          {readTime({ __html: desc })} min reading time. Created At {moment(created).format("DD-MMM YY")}
         </p>
         <div className=' flex items-center gap-4'>
           {/* <SavedPosts post={post} getUsersData={getUsersData}/> */}
