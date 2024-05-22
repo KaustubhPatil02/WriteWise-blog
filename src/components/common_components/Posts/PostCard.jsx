@@ -31,35 +31,25 @@ const PostCard = ({ post }) => {
             dangerouslySetInnerHTML={{ __html: desc }}
           />
         </div>
-        {/* <div className='flex-[1] outline-none cursor-pointer'>
+        <div className='flex-[1] outline-none cursor-pointer'>
           {postImg && 
-                    <img
-                    src={postImg} alt=""
-                    className='w-[40rem] h-[20rem] object-cover rounded-lg shadow-lg '
-                  />
+            <img
+              src={postImg} 
+              alt=""
+              className='md:w-[40rem] md:h-[20rem] w-full h-auto object-cover rounded-lg shadow-lg'
+            />
           }
-
-        </div> */}
-
-<div className='flex-[1] outline-none cursor-pointer'>
-  {postImg && 
-    <img
-      src={postImg} 
-      alt=""
-      className='md:w-[40rem] md:h-[20rem] w-full h-auto object-cover rounded-lg shadow-lg'
-    />
-  }
-</div>
+        </div>
       </div>
       <div className='flex items-center justify-between w-full md:w-[80%] mt-[3rem] md:mt-0'>
         <p className='text-sm text-gray-300'>
           {readTime({ __html: desc })} min reading time. Created At {moment(created).format("MMM-DD YYYY")}
         </p>
         <div className=' flex items-center gap-4'>
-          {/* <SavedPosts post={post} getUsersData={getUsersData}/> */}
           {currUser?.uid === userId && <Actions post={post} postId={postId} title={title} desc={desc}/>}
         </div>
       </div>
+      <hr /> {/* Horizontal line */}
     </section>
   );
 }
