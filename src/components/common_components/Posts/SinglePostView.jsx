@@ -3,16 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from "react-toastify";
 import Loading from '../../loading/Loading'
-// import readTime from '../../../utility/supporter'
 import { readTime } from '../../../utility/supporter';
 import { useNavigate } from 'react-router-dom';
 
 import { db } from '../../../Firebase/firebase'
 import moment from 'moment';
-import SavedPosts from './PostActions/SavedPosts';
-import SharePost from './PostActions/SharePost';
-import Comments from './PostActions/Comments';
-import Like from './PostActions/Like';
 import { Blog } from '../../../contextAPI/Context';
 import Actions from './PostActions/Actions';
 
