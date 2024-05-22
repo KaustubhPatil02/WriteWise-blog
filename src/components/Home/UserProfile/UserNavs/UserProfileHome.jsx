@@ -1,10 +1,11 @@
-import React from 'react'
 import useFetch from '../../../hooks/UseFetch'
 import Loading from '../../../loading/Loading'
 import PostCard from '../../../common_components/Posts/PostCard'
 
+// eslint-disable-next-line react/prop-types
 const UserProfileHome = ({ getUsersData }) => {
   const { data, loading } = useFetch("writewise-posts")
+  // eslint-disable-next-line react/prop-types
   const userPost = data && data?.filter((post) => post?.userId === getUsersData?.userId)
 
   // console.log(userPost)
