@@ -67,6 +67,14 @@ const SinglePostView = () => {
                                 <div className='flex items-center gap-3 py-[3rem]'>
                                     <img
                                         onClick={() => {
+                                            navigateToUser(`/profile/${userId}`);
+                                        }}
+                                        className='w-[4rem] h-[4rem] object-cover rounded-full cursor-pointer text-white'
+                                        src={userImg}
+                                        alt=""
+                                    />
+                                    {/* <img
+                                        onClick={() => {
                                             if (currUser) {
                                                 navigateToUser(`/profile/${userId}`);
                                             } else {
@@ -77,7 +85,7 @@ const SinglePostView = () => {
                                         className='w-[4rem] h-[4rem] object-cover rounded-full cursor-pointer text-white'
                                         src={userImg}
                                         alt=""
-                                    />
+                                    /> */}
                                     <div>
                                         <div className='capitalize  text-white'>
                                             <span>{username}</span>
@@ -100,7 +108,7 @@ const SinglePostView = () => {
                                         {/* <SharePost /> */}
                                         {/* <ActionBtn /> */}
 
-                                        {currUser?.uid === post?.userId && <Actions postId={postId} title={title} desc= {desc}/>}
+                                        {currUser?.uid === post?.userId && <Actions postId={postId} title={title} desc={desc} />}
                                     </div>
                                 </div>
 
