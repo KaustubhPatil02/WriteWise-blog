@@ -54,7 +54,7 @@ const Profile = () => {
           {userNavs.map((item, i) => (
             // eslint-disable-next-line react/jsx-key
             <div key={i} className={`py-[1rem] 
-            ${item.title === navActives.title ? "border-b-2 border-black" : ""
+            ${item.title === navActives.title ? "border-b-4 border-white" : ""
               }`}>
               <button onClick={() => setNavActives(item)}>
                 {item.title}
