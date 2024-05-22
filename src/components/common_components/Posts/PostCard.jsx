@@ -1,14 +1,14 @@
-import React from 'react';
 import UseFetch from '../../hooks/UseFetch';
 import { readTime } from '../../../utility/supporter';
 import moment from 'moment';
-import SavedPosts from './PostActions/SavedPosts';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../loading/Loading'
 import { Blog } from '../../../contextAPI/Context';
 import Actions from './PostActions/Actions';
 
+// eslint-disable-next-line react/prop-types
 const PostCard = ({ post }) => {
+  // eslint-disable-next-line react/prop-types
   const { title, desc, created, postImg, id: postId, userId } = post;
   const { currUser } = Blog();
   const { data, loading } = UseFetch("users");
