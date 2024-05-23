@@ -39,7 +39,7 @@ const Preview = ({ setPublish, ideas, title }) => {
     }
   }, [title, ideas, preview.title, desc])
 
-  
+
   const handleSubmit = async () => {
     setLoading(true);
     try {
@@ -52,15 +52,21 @@ const Preview = ({ setPublish, ideas, title }) => {
         return;
       }
       if (!preview.bannerImg) {
-        toast.info('A banner image is required to publish the post');
-        return;
+        toast.info('A banner image would have been great!');
+    
       }
       const collections = collection(db, "writewise-posts");
-      const storageRef = ref(storage, `images/${preview.bannerImg.name}`);
 
-      await uploadBytes(storageRef, preview?.bannerImg);
-
-      const imageUrl = await getDownloadURL(storageRef);
+      let imageUrl;
+      if (typeof preview.bannerImg === 'string') {
+        // If bannerImg is a URL, use it directly
+        imageUrl = preview.bannerImg;
+      } else {
+        // If bannerImg is a File object, upload it to Firebase storage
+        const storageRef = ref(storage, `images/${preview.bannerImg.name}`);
+        await uploadBytes(storageRef, preview.bannerImg);
+        imageUrl = await getDownloadURL(storageRef);
+      }
 
       // pushing data into the database.
       await addDoc(collections, {
@@ -78,7 +84,6 @@ const Preview = ({ setPublish, ideas, title }) => {
       setPreview({ title: '', bannerImg: '' })
     } catch (error) {
       toast.error('Something went wrong');
-
     }
     finally {
       setLoading(false);
@@ -105,12 +110,28 @@ const Preview = ({ setPublish, ideas, title }) => {
             </div>
             <input
               onChange={(e) => {
-                setImgPrev(URL.createObjectURL(e.target.files[0]))
-                setPreview({ ...preview, bannerImg: e.target.files[0] })
+                if (e.target.files[0]) {
+                  // If a file is selected, create an object URL
+                  setImgPrev(URL.createObjectURL(e.target.files[0]))
+                  setPreview({ ...preview, bannerImg: e.target.files[0] })
+                } else {
+                  // If a URL is entered, use it directly
+                  setImgPrev(e.target.value)
+                  setPreview({ ...preview, bannerImg: e.target.value })
+                }
               }}
               ref={imgRef}
               type="file"
               hidden
+            />
+            <input
+              className='outline-none w-full border-b border-gray-400 py-4 bg-header2 text-white text-xl'
+              type="text"
+              placeholder="Banner Image URL"
+              onChange={(e) => {
+                setImgPrev(e.target.value);
+                setPreview({ ...preview, bannerImg: e.target.value });
+              }}
             />
             <input
               className='outline-none w-full border-b border-gray-400 py-4 bg-header2 text-white text-xl'
