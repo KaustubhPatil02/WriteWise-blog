@@ -55,3 +55,7 @@ body {
 .custom-font-weight {
   font-weight: 700;
 }
+.scrollable-modal {
+  max-height: 100vh;
+  overflow-y: auto;
+}

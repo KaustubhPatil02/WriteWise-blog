@@ -80,7 +80,8 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
 
   return (
     <Modal modal={editModal} setModal={setEditModal}>
-      <div className='center w-[95] md:w-[50rem] bg-header2 mx-auto shadows-sm my-[1rem] z-10 mb-[3rem] p-[2rem] shadow'>
+      <div className='center w-[95] md:w-[50rem] bg-header2 mx-auto shadows-sm my-[1rem] z-10 mb-[3rem] p-[2rem] shadow scrollable-modal'>
+      {/* <div className='center w-[95] md:w-[50rem] bg-header2 mx-auto shadows-sm my-[1rem] z-10 mb-[3rem] p-[2rem] shadow'> */}
         <div className='flex flex-center justify-between'>
           <h2 className='font-semibold text-3xl'>Your Profile Information</h2>
           <button
