@@ -127,7 +127,7 @@ const Preview = ({ setPublish, ideas, title }) => {
             <input
               className='outline-none w-full border-b border-gray-400 py-4 bg-header2 text-white text-xl'
               type="text"
-              placeholder="Banner Image URL"
+              placeholder="or add an image URL"
               onChange={(e) => {
                 setImgPrev(e.target.value);
                 setPreview({ ...preview, bannerImg: e.target.value });
