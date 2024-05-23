@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaFacebook, FaTwitter, FaInstagram, FaLink, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-// import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaSquareXTwitter, FaHashnode } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { Blog } from '../../../../contextAPI/Context'
 
@@ -8,6 +8,7 @@ const UserProfileAbout = ({ getUsersData, setEditModal }) => {
   const { currUser } = Blog();
   const getSocialIcon = (url) => {
     if (url.includes('facebook')) return <a href={url} target="_blank" rel="noopener noreferrer"><FaFacebook size="2em" /></a>;
+    if (url.includes('hashnode')) return <a href={url} target="_blank" rel="noopener noreferrer"><FaHashnode size="2em" /></a>;
     if (url.includes('twitter')) return <a href={url} target="_blank" rel="noopener noreferrer"><FaTwitter size="2em" /></a>;
     if (url.includes('instagram')) return <a href={url} target="_blank" rel="noopener noreferrer"><FaInstagram size="2em" /></a>;
     if (url.includes('github')) return <a href={url} target="_blank" rel="noopener noreferrer"><FaGithub size="2em" /></a>;
