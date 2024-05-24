@@ -2,9 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import Modal from '../../../utility/Modal'
 import { IoIosCloseCircle } from "react-icons/io";
 import { toast } from "react-toastify";
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { getDownloadURL, ref, uploadBytes, deleteObject } from 'firebase/storage';
 import { db, storage } from '../../../Firebase/firebase';
 import { doc, updateDoc } from 'firebase/firestore';
+import LoadingBar from '../../loading/LoadingBar';
+import Loading from '../../loading/Loading';
 
 const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
   const imgRef = useRef(null);
@@ -37,6 +39,28 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
       })
     }
   }, [getUsersData])
+
+  const deleteImage = async () => {
+    if (!formData.userImg) {
+      toast.error("No image to delete");
+      return;
+    }
+
+    setLoading(true);
+
+    const storageRef = ref(storage, `images/${formData.userImg.name}`);
+
+    try {
+      await deleteObject(storageRef);
+      setImgUrl('');
+      setFormData({ ...formData, userImg: '' });
+      toast.success('Image deleted successfully');
+    } catch (error) {
+      toast.error(error.message);
+    }
+
+    setLoading(false);
+  }
 
   const saveFormData = async () => {
     if (formData.username === "" || formData.bio === "") {
@@ -79,9 +103,10 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
   }
 
   return (
-    <Modal modal={editModal} setModal={setEditModal}>
+    <>
+    {loading && <Loading />}
+      <Modal modal={editModal} setModal={setEditModal}>
       <div className='center w-[95] md:w-[50rem] bg-header2 mx-auto shadows-sm my-[1rem] z-10 mb-[3rem] p-[2rem] shadow scrollable-modal'>
-      {/* <div className='center w-[95] md:w-[50rem] bg-header2 mx-auto shadows-sm my-[1rem] z-10 mb-[3rem] p-[2rem] shadow'> */}
         <div className='flex flex-center justify-between'>
           <h2 className='font-semibold text-3xl'>Your Profile Information</h2>
           <button
@@ -112,7 +137,7 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
             </div>
             <div className='flex gap-4 text-sm'>
               <button onClick={fileOpen} className='text-green-700 '>Update</button>
-              <button className='text-red-700'>Remove</button>
+              <button onClick={deleteImage} className='text-red-700'>Remove</button>
             </div>
           </div>
         </section>
@@ -179,6 +204,7 @@ const EditProfileModal = ({ editModal, setEditModal, getUsersData }) => {
         </div>
       </div>
     </Modal>
+    </>
   )
 }
 
