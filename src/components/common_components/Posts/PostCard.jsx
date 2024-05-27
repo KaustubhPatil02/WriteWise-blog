@@ -27,7 +27,7 @@ const PostCard = ({ post }) => {
           <h2 className="text-xl font-bold line-clamp-4 leading-10 capitalize text-white">
             {title}
           </h2>
-          <div className='py-1 text-gray-400 line-clamp-5 leading-5'
+          <div className='py-1 text-gray-400 line-clamp-5 leading-5 pr-4'
             dangerouslySetInnerHTML={{ __html: desc }}
           />
         </div>
